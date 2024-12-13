@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Run build script
-      run: ./script/build.sh
+      run: ./script/build.sh -f "ss05,ss03,cv31,ss08" -w "Regular,Retina" -n "Fira Shane"
     
     - uses: actions/upload-artifact@v3
       with:
