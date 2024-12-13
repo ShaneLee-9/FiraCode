@@ -1,0 +1,26 @@
+name: Manual Build
+
+on:
+  workflow_dispatch:
+    # 可以在这里添加可选的输入参数，如果需要的话
+    # inputs:
+    #   logLevel:
+    #     description: 'Log level'
+    #     required: false
+    #     default: 'warning'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: tonsky/firacode:latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Run build script
+      run: ./script/build.sh
+    
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Build-Artifacts
+        path: distr
